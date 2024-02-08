@@ -1,5 +1,6 @@
 import { Footer } from "../components/Footer"
 import { Hero } from "../components/MainPage/Hero"
+import { MainContent } from "../components/MainPage/MainContent"
 import { NavBar } from "../components/NavBar"
 
 export const MainPage = () => {
@@ -7,9 +8,7 @@ export const MainPage = () => {
     <>
     <NavBar />
     <Hero />
-    <main className="h-[100vh]">
-
-    </main>
+    <MainContent />
     <Footer />
     </>
     
