@@ -1,4 +1,4 @@
-import { Suspense, useCallback } from "react"
+import { useCallback } from "react"
 import { api } from "../../api/UniversiaApi"
 import DestinyCard from "./DestinyCard"
 import { Destiny } from "../../types/Destiny"
