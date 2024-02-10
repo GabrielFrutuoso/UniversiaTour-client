@@ -17,6 +17,9 @@ export const MainContent = () => {
     queryFn: getDestinies
   })
 
+
+  
+
   return (
     <main className="min-h-screen">
       <h1 className="text-center text-6xl my-8">Destinos</h1>
