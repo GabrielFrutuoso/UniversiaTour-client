@@ -6,5 +6,6 @@ export type Destiny = {
     bestSeason: string;
     weather: string;
     imageUrl: string;
+    description: string;
     touristics?: Touristic[];
 }
