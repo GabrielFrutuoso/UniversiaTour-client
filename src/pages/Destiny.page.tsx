@@ -5,6 +5,8 @@ import { api } from "../api/UniversiaApi"
 import { useQuery } from "@tanstack/react-query"
 import { Destiny } from "../types/Destiny"
 import { TouristicsSection } from "../components/DestinyPage/Touristics.section"
+import { Touristic } from "../types/Touristic"
+import { Footer } from "../components/Footer"
 
 export const DestinyPage = () => {
 
@@ -22,7 +24,10 @@ export const DestinyPage = () => {
     <>
     <Banner state={data?.state} imageUrl={data?.imageUrl} />
     <Infos  destiny={data as Destiny} isLoading={isLoading as Boolean}/>
-    <TouristicsSection />
+    {data?.touristics && data?.touristics.map((touristic: Touristic) => (
+      <TouristicsSection key={touristic.id} touristicId={touristic.id} />
+    ))}
+    <Footer />
     </>
     
   )
