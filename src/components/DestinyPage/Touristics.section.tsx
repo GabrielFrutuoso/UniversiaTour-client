@@ -9,7 +9,7 @@ import { Image } from "../../types/Image";
 export const TouristicsSection = ({ touristicId }: { touristicId: number}) => {
 
     const getTouristic = useCallback(async () => {
-        const res = await api.get(`/touristics/1`)
+        const res = await api.get(`/touristics/${touristicId}`)
         return res.data
     }, [])
 
