@@ -1,3 +1,5 @@
+import { Touristic } from "./Touristic";
+
 export type Activity = {
     id?: number;
     location: string;
@@ -5,4 +7,5 @@ export type Activity = {
     localMaps: string;
     description: string;
     destiniesId: number;
+    touristic?: Touristic;
 }

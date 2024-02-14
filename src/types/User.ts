@@ -4,7 +4,6 @@ export type User = {
     id?: string;
     username: string;
     email: string;
-    sex: string;
     bio?: string;
     avatar?: string;
     birthday?: Date;

@@ -5,6 +5,7 @@ import { DestinyPage } from "./pages/Destiny.page"
 import { ThemeProvider } from "@material-tailwind/react"
 import { Login } from "./pages/Login.page"
 import { RegisterPage } from "./pages/Register.page"
+import { ProfilePage } from "./pages/Profile.page"
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
     <>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <RegisterPage />
+        <ProfilePage/>
       </ThemeProvider>
     </QueryClientProvider>
     </>
