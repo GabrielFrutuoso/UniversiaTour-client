@@ -1,22 +1,21 @@
 import { QueryClientProvider } from "@tanstack/react-query"
-import { MainPage } from "./pages/Main.page"
 import { queryClient } from "./api/QueryClient"
-import { DestinyPage } from "./pages/Destiny.page"
 import { ThemeProvider } from "@material-tailwind/react"
-import { Login } from "./pages/Login.page"
-import { RegisterPage } from "./pages/Register.page"
-import { ProfilePage } from "./pages/Profile.page"
+import { AppContext } from "./context/AppContext"
+import { DrawerMobile } from "./components/Drawer.mobile"
+import { AppRoutes } from "./routes/AppRoutes"
 
 function App() {
 
   return (
-    <>
+    <AppContext>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <ProfilePage/>
+        <DrawerMobile/>
+        <AppRoutes />
       </ThemeProvider>
     </QueryClientProvider>
-    </>
+    </AppContext>
   )
 }
 

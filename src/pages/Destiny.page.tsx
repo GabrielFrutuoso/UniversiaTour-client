@@ -10,8 +10,11 @@ import { Footer } from "../components/Footer"
 
 export const DestinyPage = () => {
 
+  const urlSearch = new URLSearchParams(window.location.search)
+  const id = urlSearch.get("id")
+
   const getTouristics = useCallback(async () => {
-    const res = await api.get("/destiny/2")
+    const res = await api.get(`destiny/${id}`)
     return res.data
   }, [])
 
