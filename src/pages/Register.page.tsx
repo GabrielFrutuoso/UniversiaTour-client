@@ -1,7 +1,5 @@
-import { Avatar, Button, Input, Typography } from '@material-tailwind/react'
-import { useState } from 'react'
+import { Button, Input, Typography } from '@material-tailwind/react'
 import { BsBackpack2Fill } from 'react-icons/bs'
-import { RxAvatar } from 'react-icons/rx'
 import { api } from '../api/UniversiaApi'
 
 export const RegisterPage = () => {

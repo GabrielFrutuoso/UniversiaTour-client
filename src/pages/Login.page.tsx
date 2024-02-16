@@ -5,13 +5,12 @@ import { useNavigate } from 'react-router-dom';
 
 
 export const Login = () => {
-  const { signIn, findUserByEmail } = useAuth()
+  const { signIn } = useAuth()
   const navigate = useNavigate()
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     signIn(e.target?.[0].value, e.target?.[1].value)
-    findUserByEmail(e.target?.[0].value)
-    navigate('/')
+    .then(() => navigate('/') )
   }
 
 
