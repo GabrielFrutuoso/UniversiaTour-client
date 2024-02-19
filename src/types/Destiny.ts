@@ -7,5 +7,6 @@ export type Destiny = {
     weather: string;
     imageUrl: string;
     description: string;
+    localMaps: string;
     touristics?: Touristic[];
 }

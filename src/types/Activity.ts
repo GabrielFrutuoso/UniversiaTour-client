@@ -7,5 +7,6 @@ export type Activity = {
     localMaps: string;
     description: string;
     destiniesId: number;
+    userId: string;
     touristic?: Touristic;
 }

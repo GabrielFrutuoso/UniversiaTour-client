@@ -11,6 +11,8 @@ export const SkelletonsPlaceholder = () => {
     <SkelletonDestiny />
     <SkelletonDestiny />
     <SkelletonDestiny />
+    <SkelletonDestiny />
+    <SkelletonDestiny />
     </>
   )
 }

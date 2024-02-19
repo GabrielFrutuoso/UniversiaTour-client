@@ -5,7 +5,6 @@ import { TfiMenu } from "react-icons/tfi"
 import { appContext } from "../context/AppContext";
 import { BiLogOut } from "react-icons/bi";
 import { useAuth } from "../hooks/useAuth";
-import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   const { user } = useContext(appContext)
@@ -22,7 +21,7 @@ export const NavBar = () => {
 
       <div className="items-center gap-10 hidden md:flex">
         <ul className="flex gap-5">
-          <li>Home</li>
+          <a href="/"><li>Home</li></a>
           <li>About</li>
           <li>Contact</li>
         </ul>    
@@ -33,9 +32,9 @@ export const NavBar = () => {
             <BiLogOut size={20} color="red" />
           </Button>
         </div> : 
-        <Link to="/login">
+        <a href="/login">
           <Button placeholder={"Login"} ripple={false}>Login</Button>
-        </Link>
+        </a>
         }
         
       </div>
