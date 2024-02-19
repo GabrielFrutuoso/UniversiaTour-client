@@ -13,9 +13,7 @@ export const useAuth = () => {
             password
         }
 
-        handleLogin(loginOBJ, email).then(() => {
-            findUserByEmail(email)
-        })
+        handleLogin(loginOBJ, email)
 
     }
 
@@ -27,9 +25,13 @@ export const useAuth = () => {
     }    
 
     const findUserByEmail = async (email: string) => {
-        const { data } = await api.get(`/user/${email}`, {headers: {
-            Authorization: `Bearer ${JSON.parse(localStorage.getItem("@Auth:token") as string)}`
-        }})
+        const { data } = await api.get(`/user/${email}`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("@Auth:token") as string)}`
+            }
+        })
+        
         setUser(data)
     }
 

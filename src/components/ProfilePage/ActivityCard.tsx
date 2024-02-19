@@ -10,7 +10,8 @@ const ActivityCard = ({ id }: { id: number}) => {
         queryKey: [`activities-${id}`],
         queryFn: () => api.get(`/activities/${id}`, {
             headers: {
-                Authorization: `Bearer ${JSON.parse(localStorage.getItem("@Auth:token") as string)}`
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("@Auth:token") as string)}`
             }
         }),
         refetchOnWindowFocus: true
