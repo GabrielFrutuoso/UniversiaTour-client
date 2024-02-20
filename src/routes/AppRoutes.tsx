@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { MainPage } from '../pages/Main.page'
 import { DestinyPage } from '../pages/Destiny.page'
 import { Login } from '../pages/Login.page'
@@ -13,22 +13,25 @@ export const AppRoutes = () => {
   const { findUserByEmail } = useAuth()
 
   const getUser = async () => {
-  findUserByEmail(JSON.parse(localStorage.getItem("@Auth:user") as string))
+    const token = localStorage.getItem('@Auth:token')
+
+    if (token) {
+      findUserByEmail(JSON.parse(localStorage.getItem("@Auth:user") as string))
+    }
+  
 }
 
 useQuery({ queryKey: ["user"], queryFn: getUser })
 
   return (
     <>   
-    <BrowserRouter>
-        <Routes>      
-            <Route path="/" element={<MainPage />} />
-            <Route path="/destiny" element={<DestinyPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
-        </Routes>
-    </BrowserRouter>    
+      <Routes>    
+        <Route path="/" element={<MainPage />} />
+        <Route path="/destiny" element={<DestinyPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
+      </Routes> 
     </>
 
   )

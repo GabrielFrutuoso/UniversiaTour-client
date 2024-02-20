@@ -4,7 +4,7 @@ import { MdOutlineEdit } from "react-icons/md"
 import { api } from "../../api/UniversiaApi"
 import { useQuery } from "@tanstack/react-query"
 
-const ActivityCard = ({ id }: { id: number}) => {
+const ActivityCard = ({ id, setOpenEdit, setActivity }: { id: number, setOpenEdit: any, setActivity: any}) => {
 
     const { data } = useQuery({
         queryKey: [`activities-${id}`],
@@ -45,7 +45,7 @@ const ActivityCard = ({ id }: { id: number}) => {
         </CardBody>
         <CardFooter placeholder={"card footer"} className="flex justify-center pt-0 pb-1">
             <div className="flex">
-                <Button placeholder={"edit"} variant="text" color="blue" className="w-full gap-1 flex justify-center">
+                <Button placeholder={"edit"} variant="text" color="blue" className="w-full gap-1 flex justify-center" onClick={() => { setOpenEdit(true), setActivity(data?.data) }}>
                     <MdOutlineEdit size={15} />
                     editar
                 </Button>

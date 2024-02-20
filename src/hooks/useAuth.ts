@@ -13,7 +13,9 @@ export const useAuth = () => {
             password
         }
 
-        handleLogin(loginOBJ, email)
+        handleLogin(loginOBJ, email).then(() => {
+            findUserByEmail(email)
+        })
 
     }
 

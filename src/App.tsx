@@ -4,6 +4,8 @@ import { ThemeProvider } from "@material-tailwind/react"
 import { AppContext } from "./context/AppContext"
 import { DrawerMobile } from "./components/Drawer.mobile"
 import { AppRoutes } from "./routes/AppRoutes"
+import { BrowserRouter } from "react-router-dom"
+import { NavBar } from "./components/NavBar"
 
 function App() {
 
@@ -12,8 +14,11 @@ function App() {
     <AppContext>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
+        <BrowserRouter>
         <DrawerMobile/>
+        <NavBar />
         <AppRoutes />
+        </BrowserRouter>
       </ThemeProvider>
     </QueryClientProvider>
     </AppContext>

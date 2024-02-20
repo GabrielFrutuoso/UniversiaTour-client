@@ -22,10 +22,10 @@ export const DrawerMobile = () => {
           <ListItem placeholder={"list item"}>Home</ListItem>
         </a>
         <a href="#" className="text-initial">
-          <ListItem placeholder={"list item"}>Trash</ListItem>
+          <ListItem placeholder={"list item"}>Contact Us</ListItem>
         </a>
         <a href="#" className="text-initial">
-          <ListItem placeholder={"list item"}>Settings</ListItem>
+          <ListItem placeholder={"list item"}>About</ListItem>
         </a>
       </List>
 
