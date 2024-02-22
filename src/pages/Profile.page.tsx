@@ -14,7 +14,6 @@ export const ProfilePage = () => {
 
   return (
     <>
-    <NavBar />
     <div className="w-full min-h-screen bg-gray-200 mt-20">
         <main className="flex flex-col gap-2 mx-auto max-w-screen-xl py-4">
           <ProfileDialog handleOpen={handleOpen} open={open} />

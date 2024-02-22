@@ -14,11 +14,10 @@ export const AppRoutes = () => {
 
   const getUser = async () => {
     const token = localStorage.getItem('@Auth:token')
-
-    if (token) {
+    const email = localStorage.getItem('@Auth:user')
+    if (token && email) {
       findUserByEmail(JSON.parse(localStorage.getItem("@Auth:user") as string))
     }
-  
 }
 
 useQuery({ queryKey: ["user"], queryFn: getUser })

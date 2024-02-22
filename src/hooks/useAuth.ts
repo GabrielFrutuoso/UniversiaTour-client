@@ -1,10 +1,12 @@
 import { useContext } from "react"
 import { api } from "../api/UniversiaApi"
 import { appContext } from "../context/AppContext"
+import { useNavigate } from "react-router-dom"
+
 
 export const useAuth = () => {
-
-    const { setUser } = useContext(appContext)
+    const navigate = useNavigate()
+    const { setUser, setOpenAlert, setAlertText } = useContext(appContext)
 
     const signIn = async (email: string, password: string) => {
 
@@ -13,9 +15,7 @@ export const useAuth = () => {
             password
         }
 
-        handleLogin(loginOBJ, email).then(() => {
-            findUserByEmail(email)
-        })
+        await handleLogin(loginOBJ, email)
 
     }
 
@@ -26,23 +26,35 @@ export const useAuth = () => {
         setUser(null)
     }    
 
-    const findUserByEmail = async (email: string) => {
-        const { data } = await api.get(`/user/${email}`, {
+    const findUserByEmail = async (userEmail: string) => {
+
+        await api.get(`/user/${userEmail}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${JSON.parse(localStorage.getItem("@Auth:token") as string)}`
-            }
-        })
-        
-        setUser(data)
+            }})
+            .then((res) => {               
+                setUser(res.data)
+                navigate("/")
+            })
     }
 
 
 
     const handleLogin = async (loginOBJ: any, email: string) => {
-        const { data } = await api.post("/login", loginOBJ)
-        localStorage.setItem("@Auth:token", JSON.stringify(data.access_token)) 
-        localStorage.setItem("@Auth:user", JSON.stringify(email))           
+        try {
+            await api.post("/login", loginOBJ).then((res) => {
+                console.log("handleLogin", res);
+                
+                localStorage.setItem("@Auth:token", JSON.stringify(res.data?.access_token)) 
+                localStorage.setItem("@Auth:user", JSON.stringify(email)) 
+            }).then(() => {
+                findUserByEmail(email)
+            })
+        } catch (error) {
+            setOpenAlert(true)
+            setAlertText("Email ou senha inválidos")
+        }         
     }
 
   return {
