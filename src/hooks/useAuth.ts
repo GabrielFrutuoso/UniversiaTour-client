@@ -1,11 +1,9 @@
 import { useContext } from "react"
 import { api } from "../api/UniversiaApi"
 import { appContext } from "../context/AppContext"
-import { useNavigate } from "react-router-dom"
 
 
 export const useAuth = () => {
-    const navigate = useNavigate()
     const { setUser, setOpenAlert, setAlertText } = useContext(appContext)
 
     const signIn = async (email: string, password: string) => {
@@ -35,7 +33,6 @@ export const useAuth = () => {
             }})
             .then((res) => {               
                 setUser(res.data)
-                navigate("/")
             })
     }
 

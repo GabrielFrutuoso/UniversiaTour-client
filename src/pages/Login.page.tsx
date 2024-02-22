@@ -1,13 +1,26 @@
 import { Button, Input, Typography } from '@material-tailwind/react'
 import { BsBackpack2Fill } from 'react-icons/bs'
 import { useAuth } from '../hooks/useAuth';
+import { useContext, useEffect } from 'react';
+import { appContext } from '../context/AppContext';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Login = () => {
+
+  const { setOpenNav } = useContext(appContext)
+  const navigate = useNavigate()
+
+
+  useEffect(() => {
+    setOpenNav(false)
+  }, [])
+
   const { signIn } = useAuth()
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     signIn(e.target?.[0].value, e.target?.[1].value)
+    .then( () => navigate('/') )
   }
 
 

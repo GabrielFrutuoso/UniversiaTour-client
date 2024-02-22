@@ -1,10 +1,16 @@
 import { Button, Input, Typography } from '@material-tailwind/react'
 import { BsBackpack2Fill } from 'react-icons/bs'
 import { api } from '../api/UniversiaApi'
+import { useContext, useEffect } from 'react'
+import { appContext } from '../context/AppContext'
 
 export const RegisterPage = () => {
 
+  const { setOpenNav } = useContext(appContext)
 
+  useEffect(() => {
+    setOpenNav(false)
+  }, [])
 
   const handleSubmit = (e: any) => {
     e.preventDefault();

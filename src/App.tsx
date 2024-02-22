@@ -5,8 +5,8 @@ import { AppContext } from "./context/AppContext"
 import { DrawerMobile } from "./components/Drawer.mobile"
 import { AppRoutes } from "./routes/AppRoutes"
 import { BrowserRouter } from "react-router-dom"
-import { NavBar } from "./components/NavBar"
 import { AlertDialog } from "./components/AlertDialog"
+import { Nav } from "./components/Nav"
 
 function App() {
 
@@ -17,8 +17,8 @@ function App() {
       <ThemeProvider>
         <BrowserRouter>
         <DrawerMobile/>
-        <NavBar />
         <AlertDialog />
+        <Nav />
         <AppRoutes />
         </BrowserRouter>
       </ThemeProvider>

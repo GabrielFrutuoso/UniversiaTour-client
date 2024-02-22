@@ -8,6 +8,8 @@ const appContext = createContext<any>({});
     const openDrawer = () => setOpen(true);
     const closeDrawer = () => setOpen(false);
 
+    const [openNav, setOpenNav] = useState<boolean>(true);
+
     const [openAlert, setOpenAlert] = useState<boolean>(false);
     const [alertText, setAlertText] = useState<string>("");
 
@@ -15,7 +17,7 @@ const appContext = createContext<any>({});
   
 
   return (
-    <appContext.Provider value={{ open, openDrawer, closeDrawer, user, setUser, openAlert, setOpenAlert, alertText, setAlertText }}>
+    <appContext.Provider value={{ open, openDrawer, closeDrawer, user, setUser, openAlert, setOpenAlert, alertText, setAlertText, openNav, setOpenNav }}>
         {children}
     </appContext.Provider>
   )
