@@ -7,6 +7,7 @@ import { ProfilePage } from '../pages/Profile.page'
 import PrivateRoute from './PrivateRoute'
 import { useAuth } from '../hooks/useAuth'
 import { useQuery } from '@tanstack/react-query'
+import { ErrorPage } from '../pages/Error.page'
 
 export const AppRoutes = () => {
 
@@ -29,6 +30,7 @@ useQuery({ queryKey: ["user"], queryFn: getUser })
         <Route path="/destiny" element={<DestinyPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/error" element={<ErrorPage />} />
         <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
       </Routes> 
     </>

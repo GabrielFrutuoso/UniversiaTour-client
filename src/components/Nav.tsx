@@ -1,4 +1,4 @@
-import { Avatar, Button, List, Navbar, Typography } from '@material-tailwind/react'
+import { Avatar, Button, Navbar, Typography } from '@material-tailwind/react'
 import { useContext } from 'react'
 import { appContext } from '../context/AppContext'
 import { useAuth } from '../hooks/useAuth'

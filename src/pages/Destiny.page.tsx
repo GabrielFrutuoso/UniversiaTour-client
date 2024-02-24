@@ -7,21 +7,27 @@ import { Destiny } from "../types/Destiny"
 import { TouristicsSection } from "../components/DestinyPage/Touristics.section"
 import { Touristic } from "../types/Touristic"
 import { Footer } from "../components/Footer"
+import { useNavigate } from "react-router-dom"
 
 export const DestinyPage = () => {
 
   const urlSearch = new URLSearchParams(window.location.search)
   const id = urlSearch.get("id")
+  const navigate = useNavigate()
 
   const getTouristics = useCallback(async () => {
     const res = await api.get(`destiny/${id}`)
     return res.data
   }, [])
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["touristic"],
     queryFn: getTouristics
   })
+
+  if (isError) {
+    navigate("/error")
+  }
 
   return (
     <>

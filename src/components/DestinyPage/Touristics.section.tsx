@@ -5,6 +5,7 @@ import { useCallback } from "react";
 import { api } from "../../api/UniversiaApi";
 import { useQuery } from "@tanstack/react-query";
 import { Image } from "../../types/Image";
+import { TouristicsSkelleton } from "./TouristicsSkelleton";
 
 export const TouristicsSection = ({ touristicId }: { touristicId: number}) => {
 
@@ -13,24 +14,25 @@ export const TouristicsSection = ({ touristicId }: { touristicId: number}) => {
         return res.data
     }, [])
 
-    const { data } = useQuery({
-        queryKey: ["ah"],
+    const { data, isLoading} = useQuery({
+        queryKey: [`touristic ${touristicId}`],
         queryFn: getTouristic
     })
 
-const { mapHeight, mapWidth, isVisible, toggleSizeMap} = useResizeMap();
-
-console.log(data);
+    const { mapHeight, mapWidth, isVisible, toggleSizeMap} = useResizeMap();    
+    const alternate = (touristicId % 2 == 0 ? "" : "flex-row-reverse")
 
 
   return (
     <section className="min-h-screen p-5 flex flex-col items-center">
+        {isLoading ? <TouristicsSkelleton alternate={alternate} /> :
+        <>
         <div className={`${isVisible} p-5 flex flex-col gap-4`}>
             <h1 className="text-center text-3xl">{data?.location}</h1>
             <p>{data?.description}</p>
         </div>
 
-        <div className="flex flex-wrap justify-evenly items-center w-full even:flex-row-reverse">
+        <div className={`flex flex-wrap justify-evenly items-center w-full gap-4 ${alternate}`}>
             <aside>
                 <div className="transition-all duration-500 relative w-80 h-80 md:w-[450px] md:h-[400px]" style={{ height: mapHeight, width: mapWidth }}>
                     <button className="absolute top-2 right-2 bg-white p-0.5 text-2xl shadow-md cursor-pointer" onClick={toggleSizeMap}><IoResize /></button>
@@ -41,7 +43,9 @@ console.log(data);
             <aside className={`${isVisible}`}>
                 <ImageSlider images={data?.images as Image[]} />
             </aside>
-        </div>
+        </div>        
+        </>
+        }
     </section>
   )
 }

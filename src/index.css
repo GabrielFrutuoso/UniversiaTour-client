@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.arrow{
+    background-image: linear-gradient(to right, #0f0f0f9d, transparent 50%);
+    transition: all 0.5s;
+    background-position: 100% 50%;
+    background-size: 200% 100%;    
+}
+
+.arrow:hover{
+    background-position: 0% 50%;
+    background-size: 200% 100%;
+}
