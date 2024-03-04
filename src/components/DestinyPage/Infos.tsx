@@ -1,7 +1,7 @@
 import { IoResize } from "react-icons/io5";
 import  useResizeMap  from "../../hooks/useResizeMap";
 import { Destiny } from "../../types/Destiny";
-export const Infos = ({ destiny, isLoading }: { destiny: Destiny, isLoading: Boolean }) => {
+export const Infos = ({ destiny }: { destiny: Destiny, isLoading: Boolean }) => {
 
     const { mapHeight, mapWidth, isVisible, toggleSizeMap} = useResizeMap();
     
