@@ -1,4 +1,4 @@
-import { useCallback } from "react"
+import { useCallback, useEffect } from "react"
 import { Banner } from "../components/DestinyPage/Banner"
 import { Infos } from "../components/DestinyPage/Infos"
 import { api } from "../api/UniversiaApi"
@@ -10,6 +10,10 @@ import { Footer } from "../components/Footer"
 import { useNavigate } from "react-router-dom"
 
 export const DestinyPage = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
 
   const urlSearch = new URLSearchParams(window.location.search)
   const id = urlSearch.get("id")

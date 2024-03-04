@@ -16,6 +16,9 @@ export const UserActivities = () => {
     const { user } = useContext(appContext)
     const handleOpen = () => setOpen(!open);
 
+    console.log(user);
+    
+
   return (
     <>
         <ActivietiesDialog handleOpen={handleOpen} open={open} />
@@ -25,11 +28,17 @@ export const UserActivities = () => {
             Itinerários
             <Button placeholder={"open modal"} color="white" onClick={handleOpen} className='text-2xl py-0 shadow-none'>+</Button>
         </Typography>
-        <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {user?.activities?.map((activity: Activity) => (
+        
+        {user?.activities?.length === 0 && (
+            <Typography placeholder={"logo"} variant="h3" className="text-center w-full h-64 bg-gray-100 flex items-center justify-center">
+                Aqui vão os seus itinerários
+            </Typography>
+        )}
+        {user?.activities?.map((activity: Activity) => (
+            <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4"> 
                 <ActivityCard id={activity?.id as number}  key={activity?.id} setOpenEdit={setOpenEdit} setActivity={setActivity} />
-            ))}
-        </div>
+            </div>
+        ))}
     </div>
     </>
 

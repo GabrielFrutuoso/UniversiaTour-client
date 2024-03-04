@@ -3,11 +3,12 @@ import { BsBackpack2Fill } from 'react-icons/bs'
 import { api } from '../api/UniversiaApi'
 import { useContext, useEffect } from 'react'
 import { appContext } from '../context/AppContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const RegisterPage = () => {
 
   const { setOpenNav } = useContext(appContext)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setOpenNav(false)
@@ -23,7 +24,8 @@ export const RegisterPage = () => {
       birthday: e.target.birthday.value,
       avatar: `https://i.pravatar.cc/300?u=${e.target.username.value}`,
     }    
-    api.post("user", user); 
+    api.post("user", user)
+    .then(() => navigate("/login")); 
   }
 
   
