@@ -4,9 +4,9 @@ export type Activity = {
     id?: number;
     location: string;
     city: string;
-    localMaps: string;
+    local_maps: string;
     description: string;
-    destiniesId: number;
-    userId: string;
+    destinies_id: number;
+    user_id: string;
     touristic?: Touristic;
 }

@@ -23,7 +23,7 @@ const ActivitiesEditDialog = ({handleOpen, open, activity}: {handleOpen: () => v
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const editedActivity = {
-      touristicId: touristicId,
+      touristic_id: touristicId,
       description: e.target?.[1].value
     }
 

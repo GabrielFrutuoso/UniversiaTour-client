@@ -3,10 +3,10 @@ import { Touristic } from "./Touristic";
 export type Destiny = {
     id: number;
     state: string;
-    bestSeason: string;
+    best_season: string;
     weather: string;
-    imageUrl: string;
+    image_url: string;
     description: string;
-    localMaps: string;
+    local_maps: string;
     touristics?: Touristic[];
 }

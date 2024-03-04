@@ -19,6 +19,7 @@ export const MainContent = () => {
     queryFn: getDestinies
   })
 
+console.log(data);
 
   
 

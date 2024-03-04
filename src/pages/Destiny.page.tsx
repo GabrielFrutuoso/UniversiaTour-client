@@ -16,7 +16,7 @@ export const DestinyPage = () => {
   const navigate = useNavigate()
 
   const getTouristics = useCallback(async () => {
-    const res = await api.get(`destiny/${id}`)
+    const res = await api.get(`/destiny/${id}`)
     return res.data
   }, [])
 
@@ -31,7 +31,7 @@ export const DestinyPage = () => {
 
   return (
     <>
-    <Banner state={data?.state} imageUrl={data?.imageUrl} />
+    <Banner state={data?.state} image_url={data?.image_url} />
     <Infos  destiny={data as Destiny} isLoading={isLoading as Boolean}/>
     {data?.touristics && data?.touristics.map((touristic: Touristic) => (
       <TouristicsSection key={touristic.id} touristicId={touristic.id} />

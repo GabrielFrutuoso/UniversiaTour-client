@@ -8,7 +8,7 @@ export const UserBio = () => {
   
   return (
     <div className="bg-white shadow-md p-4">
-        <Typography placeholder={"logo"} variant="h3">BIO</Typography>
+        <Typography placeholder={"logo"} variant="h3">Bio</Typography>
         <p className="text-gray-700">{user?.bio}</p>
     </div>
   )

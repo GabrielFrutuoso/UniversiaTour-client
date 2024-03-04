@@ -15,7 +15,7 @@ export const Infos = ({ destiny, isLoading }: { destiny: Destiny, isLoading: Boo
             </div>
             <div>
                 <h2 className="text-3xl font-bold">melhor época para visitar</h2>
-                <p className="text-neutral-600 text-xl">{destiny?.bestSeason}</p>
+                <p className="text-neutral-600 text-xl">{destiny?.best_season}</p>
             </div>
             <div>
                 <h2 className="text-3xl font-bold">clima</h2>
@@ -24,7 +24,7 @@ export const Infos = ({ destiny, isLoading }: { destiny: Destiny, isLoading: Boo
         </div> 
         <div className="transition-all duration-500 relative w-80 h-80 md:w-[650px] md:h-[400px]" style={{ height: mapHeight, width: mapWidth }}>
             <button className="absolute top-2 right-2 bg-white p-0.5 text-2xl shadow-md cursor-pointer" onClick={toggleSizeMap}><IoResize /></button>
-            <iframe src={destiny?.localMaps} loading="lazy" frameBorder="0" className="w-full h-full shadow-lg transition-all duration-500"></iframe>
+            <iframe src={destiny?.local_maps} loading="lazy" frameBorder="0" className="w-full h-full shadow-lg transition-all duration-500"></iframe>
         </div>       
     </section>
   )

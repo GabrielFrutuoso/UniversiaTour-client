@@ -1,5 +1,5 @@
 export type Image = {
     id: number
     url: string
-    touristicId: number
+    touristic_id: number
 }

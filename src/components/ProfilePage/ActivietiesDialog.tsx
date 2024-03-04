@@ -11,12 +11,12 @@ export const ActivietiesDialog = ({handleOpen, open}: {handleOpen: () => void, o
     const [touristicId, setTouristicId] = useState<number | undefined>()
 
     const getDestinies = useCallback(async () => {
-        const res = await api.get("/touristics")
+        const res = await api.get("touristics")
         return res.data
       }, [])
     
       const { data } = useQuery({
-        queryKey: ["touristics"],
+        queryKey: ["activities"],
         queryFn: getDestinies
       })
     
@@ -24,12 +24,12 @@ export const ActivietiesDialog = ({handleOpen, open}: {handleOpen: () => void, o
       const handleSubmit = async (e: any) => {
         e.preventDefault();
         const activity = {
-            userId: e.target?.[0].value,
-            touristicId: touristicId,
+            user_id: e.target?.[0].value,
+            touristic_id: touristicId,
             description: e.target?.[2].value
         }
 
-        const { data } = await api.post("activities", activity, {
+        await api.post("/activities", activity, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${JSON.parse(localStorage.getItem("@Auth:token") as string)}`

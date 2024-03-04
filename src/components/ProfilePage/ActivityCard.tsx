@@ -25,7 +25,6 @@ const ActivityCard = ({ id, setOpenEdit, setActivity }: { id: number, setOpenEdi
             }
         })
 
-        window.location.reload()
     }
 
   return (

@@ -6,8 +6,8 @@ export type Touristic = {
     id: number;
     location: string;
     city: string;
-    localMaps: string;
+    local_maps: string;
     description: string;
-    destiniesId: number;
+    destinies_id: number;
     images?: Image[]
 }

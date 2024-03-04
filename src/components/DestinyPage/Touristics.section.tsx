@@ -36,7 +36,7 @@ export const TouristicsSection = ({ touristicId }: { touristicId: number}) => {
             <aside>
                 <div className="transition-all duration-500 relative w-80 h-80 md:w-[450px] md:h-[400px]" style={{ height: mapHeight, width: mapWidth }}>
                     <button className="absolute top-2 right-2 bg-white p-0.5 text-2xl shadow-md cursor-pointer" onClick={toggleSizeMap}><IoResize /></button>
-                    <iframe src={data?.localMaps}  loading="lazy" frameBorder="0" className="w-full h-full shadow-lg transition-all duration-500"></iframe>
+                    <iframe src={data?.local_maps}  loading="lazy" frameBorder="0" className="w-full h-full shadow-lg transition-all duration-500"></iframe>
                 </div>
             </aside>
 
