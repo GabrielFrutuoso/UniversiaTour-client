@@ -25,7 +25,7 @@ export const Login = () => {
   }
 
   return (
-    <div className="h-[100vh] relative flex justify-center items-center bg-[url('https://source.unsplash.com/1200x800/?backpacking')] bg-cover bg-no-repeat bg-fixed after:w-full after:h-full after:bg-black/60 after:top-0 after:left-0 after:absolute after:z-10">
+    <div className="h-[100vh] relative flex justify-center items-center bg-[url('https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg?auto=compress&cs=tinysrgb&w=600')] bg-cover bg-no-repeat bg-fixed after:w-full after:h-full after:bg-black/60 after:top-0 after:left-0 after:absolute after:z-10">
         <form className="w-80 p-4 flex flex-col items-center gap-4 z-40  rounded-md" onSubmit={handleSubmit}>
             <Typography placeholder={"logo"} variant="h3" className='flex items-center gap-1' color='white'>
                 <BsBackpack2Fill />
